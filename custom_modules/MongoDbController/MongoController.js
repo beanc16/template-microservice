@@ -20,7 +20,7 @@ class MongoController
     static collectionName;
     static sortOptions = {};
     static Model;
-    static #connection = new MongoConnection({
+    static _connection = new MongoConnection({
         dbName: this.dbName,
         uri: this.mongoUri,
     });
@@ -31,12 +31,12 @@ class MongoController
 
 	static async getAll(findParams = { env: process.env.STAGE })
 	{
-		return new Promise(async function (resolve, reject)
+		return new Promise(async (resolve, reject) =>
 		{
             await MongoControllerHelpers.validateStaticVariables({
                 collectionName: this.collectionName,
                 Model: this.Model,
-                controllerName: this.constructor.name,
+                controllerName: this.name,
             })
             .catch(function (errors)
             {
@@ -67,12 +67,12 @@ class MongoController
 
 	static async getMostRecent(findParams = { env: process.env.STAGE })
 	{
-		return new Promise(async function (resolve, reject)
+		return new Promise(async (resolve, reject) =>
 		{
             await MongoControllerHelpers.validateStaticVariables({
                 collectionName: this.collectionName,
                 Model: this.Model,
-                controllerName: this.constructor.name,
+                controllerName: this.name,
             })
             .catch(function (errors)
             {
@@ -130,12 +130,12 @@ class MongoController
 
     static async insertOne(obj)
     {
-		return new Promise(async function (resolve, reject)
+		return new Promise(async (resolve, reject) =>
 		{
             await MongoControllerHelpers.validateStaticVariables({
                 collectionName: this.collectionName,
                 Model: this.Model,
-                controllerName: this.constructor.name,
+                controllerName: this.name,
             })
             .catch(function (errors)
             {
@@ -353,6 +353,7 @@ class MongoControllerHelpers
                 reject(errors);
             }
 
+            console.debug(`${controllerName} static variable validation succeeded.`);
             resolve(true);
 		});
 	}
