@@ -16,7 +16,7 @@ const app = express();
 
 // Ping
 const pingEndpoints = require("./routes/ping");
-app.use(`/`, pingEndpoints);
+app.use(`/ping`, pingEndpoints);
 
 
 
