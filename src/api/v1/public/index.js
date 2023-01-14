@@ -14,8 +14,8 @@ const app = express();
  * EXTERNAL ROUTES *
  *******************/
 
-// Ping
-const pingEndpoints = require("./routes/ping");
+// Endpoints
+const { pingEndpoints } = require("./routes");
 app.use(`/ping`, pingEndpoints);
 
 

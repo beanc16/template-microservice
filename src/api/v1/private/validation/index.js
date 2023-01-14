@@ -1,5 +1,6 @@
-const validators = require("./validators/index");
+const validators = require("./validators");
 
 
 
 module.exports = validators;
+
