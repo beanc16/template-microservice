@@ -7,9 +7,8 @@ import express from "express";
 export const app = express();
 
 
-// Response
-import DotnetResponses from "dotnet-responses";
-const { Success } = DotnetResponses;
+// Service
+import { pingService } from "../services/index.js";
 
 
 
@@ -19,13 +18,7 @@ const { Success } = DotnetResponses;
  * GETS *
  ********/
 
-app.get("/", function(req, res)
-{
-    Success.json({
-        res,
-        message: "Pong",
-    });
-});
+app.get("/", pingService.getPing);
 
 
 
@@ -35,13 +28,7 @@ app.get("/", function(req, res)
  * POSTS *
  *********/
 
-app.post("/", function(req, res)
-{
-    Success.json({
-        res,
-        message: "Pong",
-    });
-});
+app.post("/", pingService.postPing);
 
 
 
@@ -51,13 +38,7 @@ app.post("/", function(req, res)
  * PUT *
  *******/
 
-app.put("/", function(req, res)
-{
-    Success.json({
-        res,
-        message: "Pong",
-    });
-});
+app.put("/", pingService.putPing);
 
 
 
@@ -67,13 +48,7 @@ app.put("/", function(req, res)
  * PATCHES *
  ***********/
 
-app.patch("/", function(req, res)
-{
-    Success.json({
-        res,
-        message: "Pong",
-    });
-});
+app.patch("/", pingService.patchPing);
 
 
 
@@ -83,10 +58,4 @@ app.patch("/", function(req, res)
  * DELETES *
  ***********/
 
-app.delete("/", function(req, res)
-{
-    Success.json({
-        res,
-        message: "Pong",
-    });
-});
+app.delete("/", pingService.deletePing);
