@@ -22,13 +22,14 @@ app.use(cors());
 
 
 // Telemetry
+import loggingTelemetry from "@beanc16/logger";
 const {
   logger,
   express: {
     errorHandler,
     logEndpointDuration,
   },
-} = require("@beanc16/logger");
+} = loggingTelemetry;
 
 
 // Custom variables
@@ -77,7 +78,7 @@ app.use((err, req, res, next) => errorHandler(err, req, res, next));
  * PORT *
  ********/
 
-app.listen(serverInfoEnum.port, function ()
+app.listen(serverInfoEnum.port, function (err)
 {
   if (err) logger.error("Error in server setup", err);
   logger.info(`App listening on port ${serverInfoEnum.port}`);
