@@ -1,7 +1,1 @@
-//const MyController = require("./MyController");
-
-
-
-module.exports = {
-    //MyController,
-};
+//export * as MyController from "./MyController.js";

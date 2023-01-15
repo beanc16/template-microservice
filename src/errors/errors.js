@@ -3,12 +3,13 @@
  ************/
 
 // Routing
-const express = require("express");
-const app = express();
+import express from "express";
+export const app = express();
 
 
 // Response
-const { InvalidUrl } = require("dotnet-responses");
+import DotnetResponses from "dotnet-responses";
+const { InvalidUrl } = DotnetResponses;
 
 
 
@@ -74,9 +75,3 @@ app.delete("/*", function(req, res)
 {
     InvalidUrl.json({ res });
 });
-
-
-
-
-
-module.exports = app;

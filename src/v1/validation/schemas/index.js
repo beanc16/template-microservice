@@ -1,7 +1,1 @@
-const mySchemas = require("./mySchemas");
-
-
-
-module.exports = {
-    ...mySchemas,
-};
+export * as mySchemas from "./mySchemas.js";

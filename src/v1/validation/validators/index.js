@@ -1,7 +1,1 @@
-const myValidators = require("./myValidators");
-
-
-
-module.exports = {
-    ...myValidators,
-};
+export * as myValidators from "./myValidators.js";

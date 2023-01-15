@@ -3,12 +3,13 @@
  ************/
 
 // Routing
-const express = require("express");
-const app = express();
+import express from "express";
+export const app = express();
 
 
 // Response
-const { Success } = require("dotnet-responses");
+import DotnetResponses from "dotnet-responses";
+const { Success } = DotnetResponses;
 
 
 
@@ -89,9 +90,3 @@ app.delete("/", function(req, res)
         message: "Pong",
     });
 });
-
-
-
-
-
-module.exports = app;

@@ -1,8 +1,1 @@
-const pingEndpoints = require("./ping");
-
-
-
-module.exports = {
-    pingEndpoints,
-};
-
+export { app as pingEndpoints } from "./ping.js";

@@ -1,6 +1,1 @@
-const errorEndpoints = require("./errors");
-
-
-
-module.exports = errorEndpoints;
-
+export { app as errorEndpoints } from "./errors.js";

@@ -1,11 +1,3 @@
-const collectionsEnum = require("./collectionsEnum");
-const serverInfoEnum = require("./serverInfoEnum");
-const sortOptionsEnum = require("./sortOptionsEnum");
-
-
-
-module.exports = {
-    collectionsEnum,
-    serverInfoEnum,
-    sortOptionsEnum,
-};
+export * as collectionsEnum from "./collectionsEnum.js";
+export * as serverInfoEnum from "./serverInfoEnum.js";
+export * as sortOptionsEnum from "./sortOptionsEnum.js";

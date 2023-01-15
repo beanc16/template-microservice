@@ -1,10 +1,10 @@
-const { mySchema } = require("../schemas");
-const { validateJoiSchema } = require("@beanc16/joi-helpers");
+import { mySchema } from "../schemas/index.js";
+import { validateJoiSchema } from "@beanc16/joi-helpers";
 
 
 
 // LabelHere
-function validateMyPayload(payload)
+export function validateMyPayload(payload)
 {
     return new Promise(function (resolve, reject)
     {
@@ -19,9 +19,3 @@ function validateMyPayload(payload)
             });
     });
 }
-
-
-
-module.exports = {
-    validateMyPayload,
-};

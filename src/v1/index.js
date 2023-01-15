@@ -4,8 +4,9 @@
 
 
 // Routing
-const express = require("express");
+import express from "express";
 const app = express();
+export default app;
 
 
 
@@ -16,9 +17,7 @@ const app = express();
  *******************/
 
 // Endpoints
-const {
-    pingEndpoints,
-} = require("./routes");
+import { pingEndpoints } from "./routes/index.js";
 
 app.use(`/ping`, pingEndpoints);
 
@@ -39,9 +38,3 @@ app.use(function (err, req, res, next)
     res.send(err);
 });
 */
-
-
-
-
-
-module.exports = app;

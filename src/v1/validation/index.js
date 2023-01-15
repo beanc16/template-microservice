@@ -1,5 +1,1 @@
-const validators = require("./validators");
-
-
-
-module.exports = validators;
+export * as validators from "./validators/index.js";

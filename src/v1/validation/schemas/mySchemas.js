@@ -1,14 +1,8 @@
-const Joi = require("joi");
-const { JoiRequired } = require("@beanc16/joi-helpers");
+import Joi from "joi";
+import { JoiRequired } from "@beanc16/joi-helpers";
 
 
 
 // LabelHere
-const mySchema = JoiRequired.object({
+export const mySchema = JoiRequired.object({
 });
-
-
-
-module.exports = {
-    mySchema,
-};

@@ -1,5 +1,1 @@
-const Controllers = require("./controllers");
-
-
-
-module.exports = Controllers;
+export * as Controllers from "./controllers/index.js";

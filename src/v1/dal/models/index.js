@@ -1,7 +1,1 @@
-//const myModel = require("./myModel");
-
-
-
-module.exports = {
-    //myModel,
-};
+//export * as myModel from "./myModel.js";

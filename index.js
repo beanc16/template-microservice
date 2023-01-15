@@ -3,32 +3,22 @@
  ************/
 
 // Read environment variables
-const dotenv = require("dotenv");
+import dotenv from "dotenv";
 dotenv.config();
 
 
 // Important variables
-const { serverInfoEnum: serverInfo } = require("./src/v1/constants");
+import { serverInfoEnum } from "./src/v1/constants/index.js";
 
 
 // Routing
-const express = require("express");
+import express from "express";
 const app = express();
 
 
 // CORS
-const cors = require("cors");
+import cors from "cors";
 app.use(cors());
-
-
-// Swagger
-/*
-// TODO: Add swagger docs
-const swaggerUi = require("swagger-ui-express");
-const docs = require("./docs");
-
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(docs));
-*/
 
 
 // Custom variables
@@ -43,10 +33,10 @@ const apiPrefix = "api";
  *******************/
 
 // Api
-const apiEndpoints = require("./src/v1");
+import apiEndpoints from "./src/v1/index.js";
 app.use(`/${apiPrefix}/v1`, apiEndpoints);
 
-const errorEndpoints = require("./src/errors");
+import { errorEndpoints } from "./src/errors/index.js";
 app.use(`/`, errorEndpoints);
 
 
@@ -57,7 +47,7 @@ app.use(`/`, errorEndpoints);
  * PORT *
  ********/
 
-app.listen(serverInfo.port, async function ()
+app.listen(serverInfoEnum.port, async function ()
 {
-  console.info("App listening on port " + serverInfo.port);
+  console.info("App listening on port " + serverInfoEnum.port);
 });

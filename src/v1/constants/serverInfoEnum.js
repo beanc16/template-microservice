@@ -1,23 +1,11 @@
 // Development environment
-const devPort = 8000;
-const devBaseUrl = "http://localhost";
-const devUrl = `${devBaseUrl}:${devPort}`;
+export const devPort = 8000;
+export const devUrl = `http://localhost:${devPort}`;
 
 // Production environment
-const prodPort = 80;
+export const prodPort = (process.env.PORT) ? process.env.PORT : 80;
 // TODO: Update prodUrl
-const prodUrl = "https://template-microservice-api.herokuapp.com";
+export const prodUrl = "https://template-microservice-api.herokuapp.com";
 
-
-
-module.exports = {
-    port: (process.env.PORT) ? process.env.PORT : devPort,
-
-    // Development environment
-    devPort: devPort,
-    devUrl: devUrl,
-
-    // Production environment
-    prodPort: (process.env.PORT) ? process.env.PORT : prodPort,
-    prodUrl: prodUrl,
-};
+// General
+export const port = (process.env.PORT) ? process.env.PORT : devPort;
