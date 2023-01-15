@@ -57,7 +57,7 @@ app.use((req, res, next) => logEndpointDuration(req, res, next));
 import apiEndpoints from "./src/v1/index.js";
 app.use(`/${apiPrefix}/v1`, apiEndpoints);
 
-import { errorEndpoints } from "./src/errors/index.js";
+import { errorEndpoints } from "./src/errorRoutes/index.js";
 app.use(`/`, errorEndpoints);
 
 
