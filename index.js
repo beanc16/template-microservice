@@ -3,42 +3,33 @@
  ************/
 
 // Read environment variables
-const dotenv = require("dotenv");
+import dotenv from "dotenv";
 dotenv.config();
 
 
 // Important variables
-const { serverInfoEnum: serverInfo } = require("./src/js/enums");
+import { serverInfoEnum } from "./src/v1/constants/index.js";
 
 
 // Routing
-const express = require("express");
+import express from "express";
 const app = express();
 
 
 // CORS
-const cors = require("cors");
+import cors from "cors";
 app.use(cors());
 
 
 // Telemetry
+import loggingTelemetry from "@beanc16/logger";
 const {
   logger,
   express: {
     errorHandler,
     logEndpointDuration,
   },
-} = require("@beanc16/logger");
-
-
-// Swagger
-/*
-// TODO: Add swagger docs
-const swaggerUi = require("swagger-ui-express");
-const docs = require("./docs");
-
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(docs));
-*/
+} = loggingTelemetry;
 
 
 // Custom variables
@@ -63,11 +54,10 @@ app.use((req, res, next) => logEndpointDuration(req, res, next));
  *******************/
 
 // Api
-const apiEndpoints = require("./src/api");
-app.use(`/${apiPrefix}`, apiEndpoints);
+import apiEndpoints from "./src/v1/index.js";
+app.use(`/${apiPrefix}/v1`, apiEndpoints);
 
-// Errors
-const errorEndpoints = require("./src/apiErrors");
+import { errorEndpoints } from "./src/errors/index.js";
 app.use(`/`, errorEndpoints);
 
 
@@ -88,8 +78,8 @@ app.use((err, req, res, next) => errorHandler(err, req, res, next));
  * PORT *
  ********/
 
-app.listen(serverInfo.port, function ()
+app.listen(serverInfoEnum.port, function (err)
 {
   if (err) logger.error("Error in server setup", err);
-  logger.info(`App listening on port ${serverInfo.port}`);
+  logger.info(`App listening on port ${serverInfoEnum.port}`);
 });
