@@ -10,5 +10,5 @@ const mySchema = JoiRequired.object({
 
 
 module.exports = {
-    //mySchema,
+    mySchema,
 };

@@ -1,4 +1,4 @@
-//const { mySchema } = require("../schemas");
+const { mySchema } = require("../schemas");
 const { validateJoiSchema } = require("@beanc16/joi-helpers");
 
 
@@ -23,5 +23,5 @@ function validateMyPayload(payload)
 
 
 module.exports = {
-    //validateMyPayload,
+    validateMyPayload,
 };

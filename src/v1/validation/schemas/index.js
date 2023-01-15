@@ -1,7 +1,7 @@
-//const mySchemas = require("./mySchemas");
+const mySchemas = require("./mySchemas");
 
 
 
 module.exports = {
-    //...mySchemas,
+    ...mySchemas,
 };
