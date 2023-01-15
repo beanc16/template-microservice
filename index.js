@@ -8,7 +8,7 @@ dotenv.config();
 
 
 // Important variables
-const { serverInfoEnum: serverInfo } = require("./src/js/enums");
+const { serverInfoEnum: serverInfo } = require("./src/v1/constants");
 
 
 // Routing
@@ -43,11 +43,10 @@ const apiPrefix = "api";
  *******************/
 
 // Api
-const apiEndpoints = require("./src/api");
-app.use(`/${apiPrefix}`, apiEndpoints);
+const apiEndpoints = require("./src/v1");
+app.use(`/${apiPrefix}/v1`, apiEndpoints);
 
-// Errors
-const errorEndpoints = require("./src/apiErrors");
+const errorEndpoints = require("./src/errors");
 app.use(`/`, errorEndpoints);
 
 
