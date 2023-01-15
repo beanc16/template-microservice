@@ -1,4 +1,4 @@
-class MyError extends Error
+export class MyError extends Error
 {
     constructor(message)
     {
@@ -6,7 +6,3 @@ class MyError extends Error
         this.name = "MyError";
     }
 }
-
-
-
-module.exports = MyError;
