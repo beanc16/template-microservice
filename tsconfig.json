@@ -1,0 +1,33 @@
+{
+    "compilerOptions": {
+        "module": "NodeNext",
+        "target": "ESNext",
+        "declaration": true,
+        "esModuleInterop": true,
+        "moduleResolution": "nodenext",
+        "sourceMap": true,
+        "outDir": "api",
+        "declarationDir": "api/types",
+        "lib": [
+            "ESNext",
+        ],
+        "strict": true,
+        "isolatedModules": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noImplicitReturns": true,
+        "skipLibCheck": true,
+        "experimentalDecorators": true,
+    },
+    "include": [
+        "src",
+        "./index.ts",
+    ],
+    "exclude": [
+        "node_modules",
+        "api",
+    ],
+    "ts-node": {
+        "esm": true,
+    },
+}

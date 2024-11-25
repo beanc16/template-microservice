@@ -1,0 +1,20 @@
+{
+    "buildCommand": "npm run build",
+    "outputDirectory": "api",
+    "framework": null,
+    "functions": {
+        "**/*.js": {
+            "runtime": "@vercel/node@3.2.2",
+            "includeFiles": "api/**"
+        }
+    },
+    "routes": [{
+        "src": "/(.*)",
+        "dest": "api/index.js"
+    }],
+    "git": {
+        "deploymentEnabled": {
+            "main": false
+        }
+    }
+}
